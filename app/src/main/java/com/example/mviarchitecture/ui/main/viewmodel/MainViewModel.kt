@@ -5,13 +5,17 @@ import androidx.lifecycle.viewModelScope
 import com.example.mviarchitecture.data.repository.MainRepository
 import com.example.mviarchitecture.ui.main.intent.MainIntent
 import com.example.mviarchitecture.ui.main.viewstate.MainState
+import dagger.hilt.android.HiltAndroidApp
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel (
+@HiltViewModel
+class MainViewModel @Inject constructor(
     private val repository: MainRepository
 ) : ViewModel() {
 

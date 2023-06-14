@@ -15,10 +15,14 @@ import com.example.mviarchitecture.ui.main.adapter.MainAdapter
 import com.example.mviarchitecture.ui.main.intent.MainIntent
 import com.example.mviarchitecture.ui.main.viewmodel.MainViewModel
 import com.example.mviarchitecture.ui.main.viewstate.MainState
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private lateinit var mainViewModel: MainViewModel
+    @Inject
+    lateinit var mainViewModel: MainViewModel
     private var adapter = MainAdapter(arrayListOf())
 
     private lateinit var binding: ActivityMainBinding
@@ -28,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_main)
         setupUI()
-        setupViewModel()
+        //setupViewModel()
         observeViewModel()
         setupClicks()
     }
@@ -56,9 +60,9 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun setupViewModel() {
+    /*private fun setupViewModel() {
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-    }
+    }*/
 
     private fun observeViewModel() {
         lifecycleScope.launch {
