@@ -11,6 +11,7 @@ import dagger.hilt.android.components.ActivityComponent
 @InstallIn(ActivityComponent::class)
 abstract class ApiHelperModule {
 
+    //
     @Binds
     abstract fun bindRepo(impl: ApiHelperImpl): MainRepository
 }
